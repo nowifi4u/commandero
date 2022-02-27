@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-throw-literal */
 import { IsInstance } from 'class-validator';
 import { ArgumentExtractor } from '../../arguments/extractors/base';
-import { CommandsManager } from '../../CommandsManager';
+import { CommanderoManager } from '../../CommanderoManager';
 import { ArrayMapCast, PromiseSettledReturn } from '../../util/Array';
 import { isUserError, MultipleErrorsError, NoDefaultError } from './Errors';
 
@@ -41,14 +41,14 @@ export type BaseTypeOptionsExtractInfTs<optsTs extends UnknownBaseTypeOptions[]>
 };
 
 export abstract class BaseType<ctxT extends {}, retT, defT = never, infT extends boolean = false> implements BaseTypeDefaultOptions {
-  @IsInstance(CommandsManager)
-  public readonly manager: CommandsManager<ctxT>;
+  @IsInstance(CommanderoManager)
+  public readonly manager: CommanderoManager<ctxT>;
 
   public readonly options: BaseTypeOptions<defT, infT>;
 
   public readonly typename: string;
 
-  public constructor (manager: CommandsManager<ctxT>, options: BaseTypeOptions<defT, infT>, defaultOptions: BaseTypeDefaultOptions) {
+  public constructor (manager: CommanderoManager<ctxT>, options: BaseTypeOptions<defT, infT>, defaultOptions: BaseTypeDefaultOptions) {
     this.manager = manager;
     this.options = options;
 

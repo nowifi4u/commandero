@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-throw-literal */
 import { isNumber, toNumber } from 'lodash';
-import { CommandsManager } from '../CommandsManager';
+import { CommanderoManager } from '../CommanderoManager';
 import { BaseNumberType, BaseNumberTypeOptions } from './base/BaseNumber';
 
 export interface NumberTypeOptions<retT extends number, defT = never, infT extends boolean = false> extends BaseNumberTypeOptions<retT, defT, infT> {
@@ -12,7 +12,7 @@ export interface NumberTypeOptions<retT extends number, defT = never, infT exten
 export class LodashNumberType<ctxT extends {}, retT extends number, defT = never, infT extends boolean = false> extends BaseNumberType<ctxT, retT, defT, infT> {
   declare public readonly options: NumberTypeOptions<retT, defT, infT>;
 
-  public constructor (manager: CommandsManager<ctxT>, options: NumberTypeOptions<retT, defT, infT>) {
+  public constructor (manager: CommanderoManager<ctxT>, options: NumberTypeOptions<retT, defT, infT>) {
     super(manager, options, {
       typename: '[[ type.LodashNumber.typename ]]',
     });

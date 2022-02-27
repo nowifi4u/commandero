@@ -1,6 +1,6 @@
 import { IsInstance } from 'class-validator';
 import { CommandGroup, CommandGroupOptions } from './commands/base/CommandGroup';
-import { CommandsManager } from './CommandsManager';
+import { CommanderoManager } from './CommanderoManager';
 
 export type CommandGroupRegisterable<ctxT extends {}> = CommandGroupOptions<ctxT> | CommandGroup<ctxT>;
 export type CommandGroupResolvable<ctxT extends {}> = string | CommandGroupOptions<ctxT> | CommandGroup<ctxT>;
@@ -12,12 +12,12 @@ export interface CommandGroupResolveOptions {
 }
 
 export class CommandGroupManager<ctxT extends {}> {
-  @IsInstance(CommandsManager)
-  public readonly manager: CommandsManager<ctxT>;
+  @IsInstance(CommanderoManager)
+  public readonly manager: CommanderoManager<ctxT>;
 
   public readonly cache: Map<string, CommandGroup<ctxT>> = new Map();
 
-  public constructor (manager: CommandsManager<ctxT>) {
+  public constructor (manager: CommanderoManager<ctxT>) {
     this.manager = manager;
   }
 

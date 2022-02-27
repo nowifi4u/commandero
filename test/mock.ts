@@ -1,5 +1,5 @@
-import { CommandsManager } from '../src/CommandsManager';
+import { CommanderoManager } from '../src/CommanderoManager';
 
-export function manager<ctxT extends {}> (obj: any = {}): CommandsManager<ctxT> {
+export function manager<ctxT extends {}> (obj: any = {}): CommanderoManager<ctxT> {
   return obj;
 }

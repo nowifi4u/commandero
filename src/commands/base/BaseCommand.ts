@@ -1,6 +1,6 @@
 import { IsArray, IsBoolean, IsInstance, IsLowercase, IsObject, IsOptional, IsString, validateSync } from 'class-validator';
 import { Memoize } from 'typescript-memoize';
-import { CommandsManager } from '../../CommandsManager';
+import { CommanderoManager } from '../../CommanderoManager';
 import { Inhibitor, InhibitorManager } from '../../Inhibitor';
 import { BaseThrottle, ThrottleManager } from '../../throttle/BaseThrottle';
 import { BaseTypeExtractReturnTs, UnknownBaseType } from '../../types/base/Base';
@@ -35,8 +35,8 @@ export interface BaseCommandOptions<ctxT extends {}, argTs extends ReadonlyArray
 }
 
 export abstract class BaseCommand<ctxT extends {}, argTs extends ReadonlyArray<UnknownBaseType<ctxT>> | []> {
-  @IsInstance(CommandsManager)
-  public readonly manager: CommandsManager<ctxT>;
+  @IsInstance(CommanderoManager)
+  public readonly manager: CommanderoManager<ctxT>;
 
   @IsString()
   @IsLowercase()
@@ -78,7 +78,7 @@ export abstract class BaseCommand<ctxT extends {}, argTs extends ReadonlyArray<U
   public readonly hasInfinite: boolean;
   public readonly hasDefault: boolean;
 
-  public constructor (manager: CommandsManager<ctxT>, options: BaseCommandOptions<ctxT, argTs>) {
+  public constructor (manager: CommanderoManager<ctxT>, options: BaseCommandOptions<ctxT, argTs>) {
     this.manager = manager;
 
     this.id = options.id;

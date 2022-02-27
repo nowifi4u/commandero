@@ -11,7 +11,7 @@ import { UserError } from './Errors';
 import { ArgumentExtractor } from './arguments/extractors/base';
 import { basicExtractor } from './arguments/extractors/basicExtractor';
 
-export interface CommandManagerOptions {
+export interface CommanderoManagerOptions {
   localization: LocalizationOptions;
 
   commandPrefix?: string;
@@ -22,11 +22,11 @@ export interface CommandManagerOptions {
   defaultArgumentExtractor?: ArgumentExtractor;
 }
 
-export type CommandPrefixResolver<ctxT extends {}> = (context: ctxT) => string;
+export type CommanderoPrefixResolver<ctxT extends {}> = (context: ctxT) => string;
 
 export type ClientMessageHandler<ctxT extends {}> = (context: ctxT) => (void | Promise<void>);
 
-export class CommandsManager<ctxT extends {}> extends EventEmitter {
+export class CommanderoManager<ctxT extends {}> extends EventEmitter {
   @IsOptional()
   @IsString()
   @MinLength(1)
@@ -44,7 +44,7 @@ export class CommandsManager<ctxT extends {}> extends EventEmitter {
 
   public messageHandler?: ClientMessageHandler<ctxT>;
 
-  public constructor (options: CommandManagerOptions) {
+  public constructor (options: CommanderoManagerOptions) {
     super();
 
     this.commandPrefix = options.commandPrefix;

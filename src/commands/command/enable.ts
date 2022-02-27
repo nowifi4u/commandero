@@ -1,4 +1,4 @@
-import { CommandsManager } from '../../CommandsManager';
+import { CommanderoManager } from '../../CommanderoManager';
 import { BaseTypeExtractReturnTs } from '../../types/base/Base';
 import { CommandType } from '../../types/Command';
 import { CommandGroupType } from '../../types/CommandGroup';
@@ -13,7 +13,7 @@ export type CommandEnableCommandArgTs<ctxT extends {}> = [
 ];
 
 export class CommandEnableCommand<ctxT extends {}> extends BaseCommand<ctxT, CommandEnableCommandArgTs<ctxT>> {
-  public constructor (manager: CommandsManager<ctxT>, options: CommandEnableCommandOptions<ctxT>) {
+  public constructor (manager: CommanderoManager<ctxT>, options: CommandEnableCommandOptions<ctxT>) {
     super(manager, {
       isGuarded: true,
       isHidden: true,

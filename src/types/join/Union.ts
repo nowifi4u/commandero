@@ -2,7 +2,7 @@
 import { BaseType, BaseTypeExtractReturnTs, BaseTypeExtractInfTs, BaseTypeOptions, UnknownNoDefaultBaseType } from '../base/Base';
 import { ArrayElement } from '../../util/Array';
 import { UserError } from '../../Errors';
-import { CommandsManager } from '../../CommandsManager';
+import { CommanderoManager } from '../../CommanderoManager';
 
 // export type UnionTypeBaseOptions<infTs extends readonly boolean[], _R extends readonly unknown[] = []> =
 //   infTs extends [infer infHead, ...infer infTail]
@@ -34,7 +34,7 @@ export interface UnionTypeOptions<ctxT extends {}, argTs extends ReadonlyArray<U
 export class UnionType<ctxT extends {}, argTs extends ReadonlyArray<UnknownNoDefaultBaseType<ctxT>> | [], defT = never> extends BaseType<ctxT, UnionTypeArgReduce<ctxT, argTs>, defT, UnionTypeInfReduce<ctxT, argTs>> {
   declare public readonly options: UnionTypeOptions<ctxT, argTs, defT>
 
-  public constructor (manager: CommandsManager<ctxT>, options: UnionTypeOptions<ctxT, argTs, defT>) {
+  public constructor (manager: CommanderoManager<ctxT>, options: UnionTypeOptions<ctxT, argTs, defT>) {
     const typename = options.types.map(type => type.typename).join(' | ');
 
     super(manager, options, {

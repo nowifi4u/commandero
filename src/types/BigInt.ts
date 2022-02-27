@@ -1,4 +1,4 @@
-import { CommandsManager } from '../CommandsManager';
+import { CommanderoManager } from '../CommanderoManager';
 import { BaseType, BaseTypeOptions } from './base/Base';
 import { MaxNumberUserError, MinNumberUserError, OneOfUserError } from './base/Errors';
 
@@ -11,7 +11,7 @@ export interface BigIntTypeOptions<retT extends BigInt, defT = never, infT exten
 export class BigIntType<ctxT extends {}, retT extends BigInt, defT = never, infT extends boolean = false> extends BaseType<ctxT, retT, defT, infT> {
   declare public readonly options: BigIntTypeOptions<retT, defT, infT>;
 
-  public constructor (manager: CommandsManager<ctxT>, options: BigIntTypeOptions<retT, defT, infT>) {
+  public constructor (manager: CommanderoManager<ctxT>, options: BigIntTypeOptions<retT, defT, infT>) {
     super(manager, options, {
       typename: '[[ types.BigInt.typemame ]]',
     });

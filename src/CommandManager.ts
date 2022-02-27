@@ -1,9 +1,9 @@
 import { IsInstance } from 'class-validator';
 import { BaseCommand, UnknownBaseCommand } from './commands/base/BaseCommand';
-import { CommandsManager } from './CommandsManager';
+import { CommanderoManager } from './CommanderoManager';
 import { isConstructor } from './util/Util';
 
-export type CommandConstructor<ctxT extends {}> = new (manager: CommandsManager<ctxT>) => UnknownBaseCommand<ctxT>;
+export type CommandConstructor<ctxT extends {}> = new (manager: CommanderoManager<ctxT>) => UnknownBaseCommand<ctxT>;
 export interface CommandConstructorDefault<ctxT extends {}> {
   default: CommandConstructor<ctxT>;
 }
@@ -19,12 +19,12 @@ export interface CommandResolveOptions {
 }
 
 export class CommandManager<ctxT extends {}> {
-  @IsInstance(CommandsManager)
-  public readonly manager: CommandsManager<ctxT>;
+  @IsInstance(CommanderoManager)
+  public readonly manager: CommanderoManager<ctxT>;
 
   public readonly cache: Map<string, UnknownBaseCommand<ctxT>> = new Map();
 
-  public constructor (manager: CommandsManager<ctxT>) {
+  public constructor (manager: CommanderoManager<ctxT>) {
     this.manager = manager;
   }
 

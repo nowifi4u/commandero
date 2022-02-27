@@ -1,4 +1,4 @@
-import { CommandsManager } from '../CommandsManager';
+import { CommanderoManager } from '../CommanderoManager';
 import { BaseType, BaseTypeOptions } from './base/Base';
 import { MaxLengthUserError, MinLengthUserError, OneOfUserError } from './base/Errors';
 
@@ -11,7 +11,7 @@ export interface StringTypeOptions<retT extends string, defT = never, infT exten
 export class StringType<ctxT extends {}, retT extends string, defT = never, infT extends boolean = false> extends BaseType<ctxT, retT, defT, infT> {
   declare public readonly options: StringTypeOptions<retT, defT, infT>;
 
-  public constructor (manager: CommandsManager<ctxT>, options: StringTypeOptions<retT, defT, infT>) {
+  public constructor (manager: CommanderoManager<ctxT>, options: StringTypeOptions<retT, defT, infT>) {
     super(manager, options, {
       typename: '[[ type.String.typename ]]',
     });

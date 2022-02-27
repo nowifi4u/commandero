@@ -1,6 +1,6 @@
 import { IsBoolean, IsInstance, IsLowercase, IsOptional, IsString } from 'class-validator';
 import { CommandResolvable, CommandResolveOptions } from '../../CommandManager';
-import { CommandsManager } from '../../CommandsManager';
+import { CommanderoManager } from '../../CommanderoManager';
 import { Inhibitor } from '../../Inhibitor';
 import { BaseCommand, UnknownBaseCommand } from './BaseCommand';
 
@@ -27,8 +27,8 @@ export interface CommandGroupOptions<ctxT extends {}> {
 }
 
 export class CommandGroup<ctxT extends {}> {
-  @IsInstance(CommandsManager)
-  public readonly manager: CommandsManager<ctxT>;
+  @IsInstance(CommanderoManager)
+  public readonly manager: CommanderoManager<ctxT>;
 
   public readonly cache: Map<string, UnknownBaseCommand<ctxT>> = new Map();
 
@@ -47,7 +47,7 @@ export class CommandGroup<ctxT extends {}> {
   @IsBoolean()
   public isHidden?: boolean;
 
-  public constructor (manager: CommandsManager<ctxT>, options: CommandGroupOptions<ctxT>) {
+  public constructor (manager: CommanderoManager<ctxT>, options: CommandGroupOptions<ctxT>) {
     this.manager = manager;
     this.id = options.id;
 

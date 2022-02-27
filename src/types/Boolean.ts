@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-throw-literal */
-import { CommandsManager } from '../CommandsManager';
+import { CommanderoManager } from '../CommanderoManager';
 import { BaseType, BaseTypeOptions } from './base/Base';
 
 export interface BooleanTypeOptions<defT = never, infT extends boolean = false> extends BaseTypeOptions<defT, infT> {
@@ -13,7 +13,7 @@ export class BooleanType<ctxT extends {}, defT = never, infT extends boolean = f
   public readonly truthy: Set<string>;
   public readonly falsy: Set<string>;
 
-  public constructor (manager: CommandsManager<ctxT>, options: BooleanTypeOptions<defT, infT>) {
+  public constructor (manager: CommanderoManager<ctxT>, options: BooleanTypeOptions<defT, infT>) {
     super(manager, options, {
       typename: '[[ types.Boolean.typename ]]',
     });

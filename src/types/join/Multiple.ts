@@ -1,4 +1,4 @@
-import { CommandsManager } from '../../CommandsManager';
+import { CommanderoManager } from '../../CommanderoManager';
 import { PromiseFulfilledReturn } from '../../util/Array';
 import { BaseType, BaseTypeOptions } from '../base/Base';
 import { MultipleErrorsUserError } from '../base/Errors';
@@ -13,7 +13,7 @@ export interface MultipleAllTypeOptions<ctxT extends {}, argT extends BaseType<c
 export class MultipleAllType<ctxT extends {}, argT extends BaseType<ctxT, retT, defT, false>, retT, defT = never> extends BaseType<ctxT, retT[], defT, false> {
   declare public readonly options: MultipleAllTypeOptions<ctxT, argT, retT, defT>
 
-  public constructor (manager: CommandsManager<ctxT>, options: MultipleAllTypeOptions<ctxT, argT, retT, defT>) {
+  public constructor (manager: CommanderoManager<ctxT>, options: MultipleAllTypeOptions<ctxT, argT, retT, defT>) {
     super(manager, options, {
       typename: `[[ type.Multiple.multiple ]] ${options.type.typename}`,
     });

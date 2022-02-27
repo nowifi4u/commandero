@@ -1,13 +1,13 @@
-import { CommandsManager } from './CommandsManager';
+import { CommanderoManager } from './CommanderoManager';
 import { UserError } from './Errors';
 
 export type Inhibitor<ctxT extends {}> = (message: string, context: ctxT) => UserError | null | Promise<UserError | null>;
 
 export class InhibitorManager<ctxT extends {}> {
-  public readonly manager: CommandsManager<ctxT>;
+  public readonly manager: CommanderoManager<ctxT>;
   public readonly cache: Set<Inhibitor<ctxT>> = new Set();
 
-  public constructor (manager: CommandsManager<ctxT>) {
+  public constructor (manager: CommanderoManager<ctxT>) {
     this.manager = manager;
   }
 

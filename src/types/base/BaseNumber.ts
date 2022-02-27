@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-throw-literal */
-import { CommandsManager } from '../../CommandsManager';
+import { CommanderoManager } from '../../CommanderoManager';
 import { BaseType, BaseTypeDefaultOptions, BaseTypeOptions } from './Base';
 import { MaxNumberUserError, MinNumberUserError, OneOfUserError } from './Errors';
 
@@ -12,7 +12,7 @@ export interface BaseNumberTypeOptions<retT extends number, defT = never, infT e
 export abstract class BaseNumberType<ctxT extends {}, retT extends number, defT = never, infT extends boolean = false> extends BaseType<ctxT, retT, defT, infT> {
   declare public readonly options: BaseNumberTypeOptions<retT, defT, infT>;
 
-  public constructor (manager: CommandsManager<ctxT>, options: BaseNumberTypeOptions<retT, defT, infT>, defaultOptions: BaseTypeDefaultOptions) {
+  public constructor (manager: CommanderoManager<ctxT>, options: BaseNumberTypeOptions<retT, defT, infT>, defaultOptions: BaseTypeDefaultOptions) {
     super(manager, options, defaultOptions);
 
     this.validate();

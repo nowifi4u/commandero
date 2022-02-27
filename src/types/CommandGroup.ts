@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-throw-literal */
 import { CommandGroup } from '../commands/base/CommandGroup';
-import { CommandsManager } from '../CommandsManager';
+import { CommanderoManager } from '../CommanderoManager';
 import { BaseType, BaseTypeOptions } from './base/Base';
 
 export interface CommandGroupTypeOptions<defT = never, infT extends boolean = false> extends BaseTypeOptions<defT, infT> {
@@ -10,7 +10,7 @@ export interface CommandGroupTypeOptions<defT = never, infT extends boolean = fa
 export class CommandGroupType<ctxT extends {}, defT = never, infT extends boolean = false> extends BaseType<ctxT, CommandGroup<ctxT>, defT, infT> {
   declare public readonly options: CommandGroupTypeOptions<defT, infT>;
 
-  public constructor (manager: CommandsManager<ctxT>, options: CommandGroupTypeOptions<defT, infT>) {
+  public constructor (manager: CommanderoManager<ctxT>, options: CommandGroupTypeOptions<defT, infT>) {
     super(manager, options, {
       typename: '[[ type.Command.typename ]]',
     });
