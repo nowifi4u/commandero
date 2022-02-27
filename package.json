@@ -1,6 +1,6 @@
 {
   "name": "commandero",
-  "version": "13.51.0",
+  "version": "0.0.1",
   "description": "command framework",
   "scripts": {
     "lint": "eslint src",
