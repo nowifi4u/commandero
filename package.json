@@ -1,5 +1,5 @@
 {
-  "name": "commandero",
+  "name": "@nowifi4u/commandero",
   "version": "0.0.1",
   "description": "command framework",
   "scripts": {
