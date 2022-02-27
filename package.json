@@ -1,0 +1,79 @@
+{
+  "name": "commandero",
+  "version": "13.51.0",
+  "description": "command framework",
+  "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src",
+    "test:jest": "jest",
+    "test:tsc": "tsc --noEmit",
+    "test": "npm run test:tsc && npm run test:jest",
+    "prebuild": "npm run test:jest",
+    "build:esm": "tsc -p tsconfig.json",
+    "build:cjs": "tsc -p tsconfig-cjs.json",
+    "build": "rimraf dist/ && npm run build:esm && npm run build:cjs",
+    "prepublish": "npm run build",
+    "prepare": "husky install"
+  },
+  "author": "Maxim Shamber",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nowifi4u/commandero.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nowifi4u/commandero/issues"
+  },
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@formatjs/intl": "^1.18.3",
+    "@formatjs/intl-getcanonicallocales": "^1.9.0",
+    "@nowifi4u/utils": "^1.2.2",
+    "class-validator": "^0.13.2",
+    "class-validators": "^1.0.1",
+    "common-tags": "^1.8.2",
+    "emoji-regex": "^10.0.0",
+    "js-combinatorics": "^1.5.6",
+    "lodash": "^4.17.21",
+    "reflect-metadata": "^0.1.13",
+    "ts-mixer": "^6.0.0",
+    "typescript-memoize": "^1.1.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.16.7",
+    "@babel/plugin-proposal-decorators": "^7.17.2",
+    "@babel/plugin-transform-typescript": "^7.16.8",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^26.0.24",
+    "@types/lodash": "^4.14.178",
+    "@types/node": "^16.11.19",
+    "@types/validator": "^13.7.1",
+    "@typescript-eslint/eslint-plugin": "^5.9.1",
+    "eslint": "^8.6.0",
+    "eslint-config-standard-with-typescript": "^21.0.1",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.7",
+    "jest-extended": "^1.2.0",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.5.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.5.4"
+  },
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esc/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=16.6.0",
+    "npm": ">=7.0.0"
+  },
+  "files": [
+    "dist"
+  ]
+}

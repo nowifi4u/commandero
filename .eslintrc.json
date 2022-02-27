@@ -1,0 +1,31 @@
+{
+  "extends": "standard-with-typescript",
+  "parserOptions": {
+    "project": "./tsconfig.eslint.json"
+  },
+  "rules": {
+    "semi": ["error", "always"],
+    "@typescript-eslint/semi": ["error", "always"],
+    "no-extra-semi": "error",
+    "@typescript-eslint/member-delimiter-style": [
+      "error",
+      {
+        "multiline": { "delimiter": "semi" },
+        "singleline": { "delimiter": "comma", "requireLast": false }
+      }
+    ],
+
+    "comma-dangle": ["error", "always-multiline"],
+    "@typescript-eslint/strict-boolean-expressions": ["error", {
+      "allowString": false,
+      "allowNumber": false,
+      "allowNullableObject": true,
+      "allowNullableBoolean": true,
+      "allowNullableString": false,
+      "allowNullableNumber": false,
+      "allowAny": false
+    }],
+
+    "no-warning-comments": ["error", { "terms": ["todo", "fixme"] }]
+  }
+}

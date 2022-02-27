@@ -1,0 +1,31 @@
+{
+  "parserOpts": {
+    "strictMode": true
+  },
+  "sourceMaps": "inline",
+  "presets": [
+    "@babel/preset-typescript",
+    [
+      "@babel/preset-env",
+      {
+        "targets": { "node": "current" },
+        "modules": "commonjs"
+      }
+    ],
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-transform-typescript",
+      {
+        "allowDeclareFields": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "legacy": true
+      }
+    ],
+    "@babel/plugin-proposal-class-properties"
+  ]
+}

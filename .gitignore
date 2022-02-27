@@ -1,0 +1,11 @@
+# Packages
+node_modules/
+yarn.lock
+package-lock.json
+
+# Miscellaneous
+.tmp/
+dist/
+
+.nyc_output
+coverage

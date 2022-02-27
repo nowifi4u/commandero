@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "node",
+    "module": "ES2020",
+    "target": "ES2019",
+    "lib": ["esnext", "esnext.array", "esnext.asynciterable", "esnext.intl", "esnext.symbol"],
+    "sourceMap": false,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "outDir": "./dist/esm",
+    "declaration": true,
+    "removeComments": false,
+    "alwaysStrict": true,
+    "allowSyntheticDefaultImports": true,
+    "pretty": true,
+    "noEmitOnError": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "newLine": "lf",
+    "experimentalDecorators": true,
+    "resolveJsonModule": true,
+    "noErrorTruncation": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true
+  },
+  "include": ["src/**/*.ts"]
+}
