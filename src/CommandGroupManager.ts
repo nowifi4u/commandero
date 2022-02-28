@@ -5,7 +5,7 @@ import { CommanderoManager } from './CommanderoManager';
 export type CommandGroupRegisterable<ctxT extends {}> = CommandGroupOptions<ctxT> | CommandGroup<ctxT>;
 export type CommandGroupResolvable<ctxT extends {}> = string | CommandGroupOptions<ctxT> | CommandGroup<ctxT>;
 
-export interface CommandGroupResolveOptions {
+export interface CommandGroupManagerResolveOptions {
   checkGroupID?: boolean;
   checkGroupRef?: boolean;
   returnCached?: boolean;
@@ -51,7 +51,7 @@ export class CommandGroupManager<ctxT extends {}> {
     return existingGroup;
   }
 
-  public resolve (group: CommandGroupResolvable<ctxT>, options: CommandGroupResolveOptions = {}): CommandGroup<ctxT> | undefined {
+  public resolve (group: CommandGroupResolvable<ctxT>, options: CommandGroupManagerResolveOptions = {}): CommandGroup<ctxT> | undefined {
     if (typeof group === 'string') {
       return this.cache.get(group);
     }
@@ -72,11 +72,11 @@ export class CommandGroupManager<ctxT extends {}> {
     throw new TypeError('Invalid command group type');
   }
 
-  public resolveID (group: CommandGroupResolvable<ctxT>, options: CommandGroupResolveOptions = {}): string | undefined {
+  public resolveID (group: CommandGroupResolvable<ctxT>, options: CommandGroupManagerResolveOptions = {}): string | undefined {
     return this.resolve(group, options)?.id;
   }
 
-  public has (group: CommandGroupResolvable<ctxT>, options: CommandGroupResolveOptions = {}): boolean {
+  public has (group: CommandGroupResolvable<ctxT>, options: CommandGroupManagerResolveOptions = {}): boolean {
     return this.resolve(group, options) != null;
   }
 }
