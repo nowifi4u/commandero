@@ -179,5 +179,3 @@ export abstract class BaseCommand<ctxT extends {}, argTs extends ReadonlyArray<U
 }
 
 export type UnknownBaseCommand<ctxT extends {}> = BaseCommand<ctxT, ReadonlyArray<UnknownBaseType<ctxT>> | []>;
-
-export type CommandConstructor<ctxT extends {}, T extends UnknownBaseCommand<ctxT>> = new () => T;
