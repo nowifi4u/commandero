@@ -1,9 +1,9 @@
-export * from './arguments';
-export * from './commands';
-export * from './locales';
-export * from './throttle';
-export * from './types';
-export * from './util';
+export * from './arguments/index';
+export * from './commands/index';
+export * from './locales/index';
+export * from './throttle/index';
+export * from './types/index';
+export * from './util/index';
 
 export * from './CommandGroupManager';
 export * from './CommandManager';
