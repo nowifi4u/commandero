@@ -2,7 +2,7 @@ import { IsBoolean, IsOptional, IsString, MinLength } from 'class-validator';
 import EventEmitter from 'events';
 import { CommandGroupManager } from './CommandGroupManager';
 import { InhibitorManager } from './Inhibitor';
-import { Localization, LocalizationKeyError, LocalizationOptions } from './Localization';
+import { Localization, LocalizationOptions } from './Localization';
 import { Memoize } from 'typescript-memoize';
 import { CommandManager } from './CommandManager';
 import { escapeRegExp } from 'lodash';
@@ -93,11 +93,10 @@ export class CommanderoManager<ctxT extends {}> extends EventEmitter {
     console.log(err);
   }
 
-  public async handleMessageUserError (message: string, context: ctxT, err: UserError): Promise<string> {
+  public async handleMessageUserError (message: string, context: ctxT, err: UserError): Promise<void> {
     const locale = await this.handleMessageLocale(message, context);
-    const msg = this.localization.translateUnsafe(locale, err.message) ?? this.localization.translateUnsafe(locale, 'error.unknown');
-    if (msg == null) throw new LocalizationKeyError(err.message);
-    return msg;
+    const msg = this.localization.translateUnsafe(locale, err.message) ?? this.localization.translateUnsafe(locale, 'error.unknown') ?? err.message;
+    throw new Error(msg, { cause: err });
   }
 
   public async handleMessageLocale (message: string, context: ctxT): Promise<string> {
