@@ -67,6 +67,7 @@
   },
   "main": "./dist/cjs/index.js",
   "module": "./dist/esc/index.js",
+  "typings": "./dist/esc/index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/cjs/index.js",
