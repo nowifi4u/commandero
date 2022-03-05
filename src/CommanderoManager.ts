@@ -5,7 +5,6 @@ import { InhibitorManager } from './Inhibitor';
 import { Localization, LocalizationKeyError, LocalizationOptions } from './Localization';
 import { Memoize } from 'typescript-memoize';
 import { CommandManager } from './CommandManager';
-import { splitArgs } from './util/String';
 import { escapeRegExp } from 'lodash';
 import { UserError } from './Errors';
 import { ArgumentExtractor } from './arguments/extractors/base';
@@ -114,10 +113,6 @@ export class CommanderoManager<ctxT extends {}> extends EventEmitter {
 
   public async handleMessagePrefix (context: ctxT): Promise<string | undefined> {
     return this.commandPrefix;
-  }
-
-  public async parseArguments (strArgs: string): Promise<string[]> {
-    return splitArgs(strArgs);
   }
 
   @Memoize({})
